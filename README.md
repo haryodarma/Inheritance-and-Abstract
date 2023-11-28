@@ -1,5 +1,5 @@
-Hi Everyone...
-Iam Haryo Darma Putra
+Hi Everyone...,
+Iam Haryo Darma Putra and
 Iam a newbie programmer
 
 Instagram : @ryodrma_
