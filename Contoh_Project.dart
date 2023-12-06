@@ -1,5 +1,6 @@
 import 'dart:io';
 
+// Class Parent
 class Segi {
   int? sisi1;
   int? sisi2;
@@ -7,12 +8,10 @@ class Segi {
   int? panjang;
   int? lebar;
   int? tinggi;
-  int? v;
-  int? alas;
   int? result;
 }
 
-// SEGI 4
+// Class Child for SEGI 4
 class Segi4 extends Segi {
   void luas(panjang, lebar) {
     int result = panjang * lebar;
@@ -25,7 +24,7 @@ class Segi4 extends Segi {
   }
 }
 
-// SEGI 3
+// Class Child for SEGI 3
 class Segi3 extends Segi {
   void luas(tinggi, sisi1, [sisi2, sisi3]) {
     double result = 1 / 2 * (sisi1 * tinggi);
@@ -42,18 +41,19 @@ class Segi3 extends Segi {
 void main() {
   int u = 1;
 
-  for (int i = 1; i <= u;) {
+//Memilih Bangun Datar
+  for (int i = 1; i <= u; i++) {
     stdout.write(
         'Masukkan Jenis Bangun Datar \n a. Segi 3 \n b. Segi 4 \n (a/b) =');
     String? bangun = stdin.readLineSync();
 
-    //SEGITIGA
+//SEGITIGA
     if (bangun == 'a') {
       var segi3 = Segi3();
       stdout.write('Masukkan Rumus\n a. luas \n b. keliling \n (a/b) ');
       String? lk = stdin.readLineSync();
 
-      // LUAS SEGITIGA
+// LUAS SEGITIGA
       if (lk == 'a') {
         stdout.write('masukkan alas = ');
         int alas = int.parse(stdin.readLineSync()!);
@@ -61,7 +61,7 @@ void main() {
         int tinggi = int.parse(stdin.readLineSync()!);
         segi3.luas(alas, tinggi);
 
-        //KELILING SEGITIGA
+//KELILING SEGITIGA
       } else if (lk == 'b') {
         stdout.write('masukkan sisi 1 = ');
         var sisi1 = num.parse(stdin.readLineSync()!);
@@ -72,16 +72,16 @@ void main() {
         segi3.keliling(sisi1, sisi2, sisi3);
       } else {
         print('ente salah masukin input broo...');
-        u++;
+        u = i + 1;
       }
 
-      //SEGI EMPAT
+//SEGI EMPAT
     } else if (bangun == 'b') {
       var segi4 = Segi4();
       stdout.write('Masukkan Rumus\n a. luas \n b. keliling \n (a/b) ');
       String? lk = stdin.readLineSync();
 
-      //LUAS SEGIEMPAT
+//LUAS SEGIEMPAT
       if (lk == 'a') {
         stdout.write('masukkan panjang = ');
         int panjang = int.parse(stdin.readLineSync()!);
@@ -89,7 +89,7 @@ void main() {
         int lebar = int.parse(stdin.readLineSync()!);
         segi4.luas(panjang, lebar);
 
-        // KELILING SEGIEMPAT
+// KELILING SEGIEMPAT
       } else if (lk == 'b') {
         stdout.write('masukkan panjang = ');
         int panjang = int.parse(stdin.readLineSync()!);
@@ -98,22 +98,21 @@ void main() {
         segi4.keliling(panjang, lebar);
       } else {
         print('ente salah masukin input broo...');
-        u++;
+        u = i + 1;
       }
     } else {
       print('ente salah masukin input broo...');
-      u++;
+      u = i + 1;
     }
     stdout.write("Ulangi? (y/t) ");
     String? ans = stdin.readLineSync();
     if (ans == 'y') {
-      u++;
+      u = i + 1;
     } else if (ans == 't') {
       print('okee makasi banyak broo...');
-      u--;
+      u = 0;
     } else {
-      print("ente salah masukin input broo...\nkuanggap stop");
+      print("ente salah masukin input broo...");
     }
-    i++;
   }
 }
